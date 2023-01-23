@@ -20,10 +20,17 @@ graph TD;
 
 # Run the slow backend simulator
 
+In a 1st terminal, run
 ```
 java -jar slow-backend/target/quarkus-app/quarkus-run.jar
 ```
 
+# Run the Camel Application
+
+In a second terminal, run:
+```
+java -jar camel-app/target/quarkus-app/quarkus-run.jar
+```
 
 # Testing Performance of different http clients
 
@@ -32,7 +39,7 @@ The syntax of the testing script is `./scripts/load_test.sh $HTTP_CLIENT $NUM_RE
 * `HTTP_CLIENT` is one of `ahc` (Apache HTTP Client), `vertx` or `netty`
 * `NUM_REQ` is the number of parralel requests to 
 
-For example, to send 50 concurrent requests using the vertx client:
+For example, run the following command in a 3rd terminal to send 50 concurrent requests using the vertx client:
 ```
 time ./scripts/load_test.sh vertx 50
 ```
