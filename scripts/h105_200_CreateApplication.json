@@ -1,0 +1,33 @@
+{
+    "application":
+    {
+ "coverageYear":2017,
+ "coverageState":"DE",
+ "useCase":"InitialApplication",
+ "comments":"Initial Application"
+    },
+
+"applicationMembers":
+[
+ {
+    "householdContactIndicator":true,
+    "firstName":"Susan",
+    "middleName":"Carrie",
+    "lastName":"Griffith",
+    "suffix":"Sr.",
+    "birthDate":"1980-01-01",
+    "mailingAddress":{
+       "streetName1":"34 Elsmere Blvd",
+       "streetName2":"Apt 102",
+       "cityName":"Wilmington",
+       "stateCode":"DE",
+       "plus4Code":"4565",
+       "zipCode":"20124",
+       "countyName":"County",
+       "countyFipsCode":"04535"
+    },
+    "email":"susangriffith@gmail.com",
+    "homePhoneNumber":"7038675309"
+ }
+]
+}
