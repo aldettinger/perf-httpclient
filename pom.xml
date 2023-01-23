@@ -94,7 +94,6 @@
     <module>pom-service</module>
     <module>camel-app</module>
     <module>slow-backend</module>
-    <module>slow-camel</module>
   </modules>
   <profiles>
     <profile>

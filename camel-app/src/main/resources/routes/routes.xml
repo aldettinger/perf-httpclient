@@ -1,42 +1,29 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://camel.apache.org/schema/spring"
-    xsi:schemaLocation="http://camel.apache.org/schema/spring https://camel.apache.org/schema/spring/camel-spring-3.14.2.xsd">
+  xmlns="http://camel.apache.org/schema/spring"
+  xsi:schemaLocation="http://camel.apache.org/schema/spring https://camel.apache.org/schema/spring/camel-spring-3.14.2.xsd">
 
-    <route id="vertx">
-        <from uri="direct:vertx" />
-        <log message="Before Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
-        <removeHeaders pattern="*"/>
-        <!--to uri="vertx-http:http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/vertx" /-->
-        <!--to uri="rest:GET:/vertx?host=slow-backend-guillaume-perf.apps.vlab-sno.vlab.com" /-->
-        <!--enrich>
-            <constant>vertx-http:http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/vertx</constant>
-            <constant>rest:GET:/vertx?host=slow-backend-guillaume-perf.apps.vlab-sno.vlab.com</constant>
-          </enrich-->
-          <to uri="vertx-http:http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/vertx" />
+  <route id="vertx">
+    <from uri="direct:vertx" />
+    <log message="Before Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <removeHeaders pattern="*" />
+    <to uri="vertx-http:http://localhost:8080/vertx" />
+    <log message="After Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+  </route>
 
-        <log message="After Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
-    </route>
+  <route id="ahc">
+    <from uri="direct:ahc" />
+    <log message="Before ahc. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <removeHeaders pattern="*" />
+    <to uri="http://localhost:8080/ahc" />
+    <log message="After AHC. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+  </route>
 
-    <route id="ahc">
-        <from uri="direct:ahc" />
-        <log message="Before ahc. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
-        <removeHeaders pattern="*"/>
-        <to uri="http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/ahc" />
-        <!--enrich>
-            <constant>http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/ahc</constant>
-          </enrich-->
-        <log message="After AHC. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
-    </route>
-
-    <route id="netty">
-      <from uri="direct:netty" />
-      <log message="Before netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
-      <removeHeaders pattern="*"/>
-      <to uri="netty-http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/netty" />
-      <!--enrich>
-          <constant>http://slow-backend-guillaume-perf.apps.vlab-sno.vlab.com/ahc</constant>
-        </enrich-->
-      <log message="After Netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+  <route id="netty">
+    <from uri="direct:netty" />
+    <log message="Before netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <removeHeaders pattern="*" />
+    <to uri="netty-http://localhost:8080/netty" />
+    <log message="After Netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
   </route>
 
 </routes>
