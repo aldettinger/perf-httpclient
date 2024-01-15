@@ -12,7 +12,7 @@ import io.smallrye.mutiny.Uni;
 
 import java.util.concurrent.*;
 
-@Path("/{a:vertx|ahc|netty}")
+@Path("/{a:vertx|http|netty}")
 public class Rest {
     private static final Logger LOG = Logger.getLogger(Rest.class);
     private static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);

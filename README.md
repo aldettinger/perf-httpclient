@@ -36,7 +36,7 @@ java -jar camel-app/target/quarkus-app/quarkus-run.jar
 
 The syntax of the testing script is `./scripts/load_test.sh $HTTP_CLIENT $NUM_REQ` where 
 
-* `HTTP_CLIENT` is one of `ahc` (Apache HTTP Client), `vertx` or `netty`
+* `HTTP_CLIENT` is one of `http` (Apache HTTP Client), `vertx` or `netty`
 * `NUM_REQ` is the number of parralel requests to 
 
 For example, run the following command in a 3rd terminal to send 50 concurrent requests using the vertx client:
@@ -52,5 +52,5 @@ time ./scripts/load_test.sh netty 1000
 
 Or 100 requests using the Apache HTTP Client:
 ```
-time ./scripts/load_test.sh ahc 100
+time ./scripts/load_test.sh http 100
 ```

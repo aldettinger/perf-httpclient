@@ -8,8 +8,8 @@
         <to uri="direct:vertx" />
     </get>
 
-    <get path="/ahc" description="Apache HTTP client Endpoint">
-        <to uri="direct:ahc" />
+    <get path="/http" description="Apache HTTP client Endpoint">
+        <to uri="direct:http" />
     </get>
 
     <get path="/netty" description="Netty HTTP client Endpoint">

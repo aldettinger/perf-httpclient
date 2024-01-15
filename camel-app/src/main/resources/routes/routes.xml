@@ -4,26 +4,26 @@
 
   <route id="vertx">
     <from uri="direct:vertx" />
-    <log message="Before Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <log message="Before vertx-http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
     <removeHeaders pattern="*" />
     <to uri="vertx-http:http://localhost:8080/vertx" />
-    <log message="After Vertx. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <log message="After vertx-http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
   </route>
 
-  <route id="ahc">
-    <from uri="direct:ahc" />
-    <log message="Before ahc. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+  <route id="http">
+    <from uri="direct:http" />
+    <log message="Before http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
     <removeHeaders pattern="*" />
-    <to uri="http://localhost:8080/ahc" />
-    <log message="After AHC. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <to uri="http://localhost:8080/http" />
+    <log message="After http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
   </route>
 
   <route id="netty">
     <from uri="direct:netty" />
-    <log message="Before netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <log message="Before netty-http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
     <removeHeaders pattern="*" />
     <to uri="netty-http://localhost:8080/netty" />
-    <log message="After Netty. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
+    <log message="After netty-http. ThreadCount:${bean:java.lang.Thread?method=activeCount}"></log>
   </route>
 
 </routes>
